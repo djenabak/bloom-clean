@@ -701,9 +701,9 @@ function Booking({ go }) {
   });
   setDone(true);
 }}
-                ✓ Submit Booking Request
-              </button>
-            </div>
+          ✓ Submit Booking Request
+          </button>
+	  </div>
           </div>
         )}
       </div>
