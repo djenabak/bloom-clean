@@ -709,7 +709,7 @@ function Booking({ go }) {
           </button>
 	  </div>         
           </div>
-    </section>
+    
   );
 }
 
