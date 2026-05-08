@@ -304,7 +304,7 @@ function Services({ go }) {
         <p style={{ fontFamily:"Lato,sans-serif", fontSize:11, color:P, textTransform:"uppercase", letterSpacing:"0.14em", margin:"0 0 14px" }}>Payment Accepted Via</p>
         <div style={{ display:"flex", justifyContent:"center", gap:10, flexWrap:"wrap" }}>
           {[["Venmo"],["Zelle"],["Cash App"],["Apple Pay"]].map(([em,m]) => (
-            <span key={m} style={{ background:"rgba(183,215,234,0.15)", borderRadius:20, padding:"8px 18px", fontFamily:"Lato,sans-serif", fontSize:12, fontWeight:700, color:WH }}>{em} {m}</span>
+            <span key={m} style={{ background:"rgba(183,215,234,0.15)", borderRadius:20, padding:"8px 0px", width:"110px", textAlign:"center", display:"inline-block", fontFamily:"Lato,sans-serif", fontSize:12, fontWeight:700, color:WH }}>{em} {m}</span>
           ))}
         </div>
       </div>
