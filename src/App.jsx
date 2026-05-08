@@ -708,8 +708,7 @@ function Booking({ go }) {
           ✓ Submit Booking Request
           </button>
 	  </div>         
-          </div>
-    
+          </div>    
   );
 }
 
