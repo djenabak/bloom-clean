@@ -685,26 +685,28 @@ function Booking({ go }) {
 
             <div style={{ display:"flex", gap:10 }}>
               <button onClick={() => setStep(2)} style={{ flex:1, padding:"12px", borderRadius:14, border:`1.5px solid ${P}`, background:WH, color:GY, fontFamily:"Lato,sans-serif", fontSize:13, fontWeight:700, cursor:"pointer" }}>← Back</button>
-             onClick={() => {
+             onClick={function() {
+  var addonNames = ADDONS.filter(function(a) {
+    return a.id !== "pickup" && f.addons[a.id];
+  }).map(function(a) { return a.name; }).join(", ");
   emailjs.send("service_8eg5smn", "template_n7sv9bf", {
-    name:       f.name,
-    phone:      f.phone,
-    email:      f.email || "Not provided",
-    address:    f.address,
-    day:        f.day,
-    load_size:  SzLabel + " x " + f.numLoads,
-    pickup:     f.addons.pickup ? "Yes +$8" : "No",
-    addons:     ADDONS.filter(a => a.id !== "pickup" && f.addons[a.id]).map(a => a.name).join(", ") || "None",
-    payment:    f.pay,
-    total:      fmt(total),
-    notes:      f.notes || "None",
+    name:      f.name,
+    phone:     f.phone,
+    email:     f.email || "Not provided",
+    address:   f.address,
+    day:       f.day,
+    load_size: SzLabel + " x " + f.numLoads,
+    pickup:    f.addons.pickup ? "Yes +$8" : "No",
+    addons:    addonNames || "None",
+    payment:   f.pay,
+    total:     fmt(total),
+    notes:     f.notes || "None",
   });
   setDone(true);
 }}
           ✓ Submit Booking Request
           </button>
-	  </div>
-          </div>
+	  </div>         
         )}
       </div>
     </section>
