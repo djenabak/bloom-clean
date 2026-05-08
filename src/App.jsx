@@ -704,11 +704,12 @@ function Booking({ go }) {
   });
   setDone(true);
 }}
-<button onClick={() => setDone(true)} style={{ flex:2, padding:"12px", borderRadius:14, border:"none", background:B, color:WH, fontFamily:"Lato,sans-serif", fontSize:14, fontWeight:700, cursor:"pointer", boxShadow:`0 4px 18px rgba(72,147,198,0.38)` }}>
           ✓ Submit Booking Request
           </button>
-	  </div>    
-      
+	  </div>
+)}
+      </div>
+    </section>
   );
 }
 
