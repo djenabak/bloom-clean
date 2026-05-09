@@ -34,8 +34,8 @@ const ADDONS = [
 const PRODUCTS = [
   { n:"Fragrance-Free Detergent",    d:"Unscented · Baby Safe",   tags:["No Fragrance","Baby Safe","Natural"],      bg:A    },
   { n:"Eucalyptus Detergent",        d:"Scented · Antimicrobial",  tags:["Eucalyptus","Antimicrobial"],    bg:MN   },
-  { n:"Brightening Detergent",       d:"No Bleach",   tags:["No Bleach","Brightens","Natural"],         bg:"#fffde0" },
-  { n:"Fragrance-Free Softener",    d:"Vinegar-Based · Baby Safe",           tags:["No Fragrance","Baby Safe","All Fabrics"],  bg:"#ede0f7" },
+  { n:"Brightening Detergent",       d:"Add-On +$3/load · No Bleach",   tags:["No Bleach","Brightens","Natural"],         bg:"#fffde0" },
+  { n:"Fragrance-Free Softener",    d:"Add-On +$3/load · Vinegar-Based · Baby Safe",           tags:["No Fragrance","Baby Safe","All Fabrics"],  bg:"#ede0f7" },
   { n:"Eucalyptus Scent Booster",   d:"Add-On +$4/load · Natural EO",        tags:["Add-On","Natural EO","No Synthetics"],    bg:MN   },
   { n:"Clean Linen Scent Booster",  d:"Add-On +$4/load · EO blend",          tags:["Add-On","Lavender+Eucalyptus"],             bg:"#ede0f7" },
   { n:"Stain Pre-Treatment Spray",  d:"Add-On +$5 · No bleach formula",      tags:["Add-On","No Bleach","Natural"],           bg:CR   },
@@ -504,7 +504,7 @@ function Booking({ go }) {
           <p style={{ fontFamily:"Lato,sans-serif", fontSize:12, color:P, margin:0 }}>{SzLabel} × {f.numLoads} · {f.day} · Pay via {f.pay}</p>
         </div>
         <button onClick={copyText} style={{ width:"100%", padding:"13px", borderRadius:14, border:"none", background:copied?DK:B, color:WH, fontFamily:"Lato,sans-serif", fontSize:13, fontWeight:700, cursor:"pointer", marginBottom:10, transition:"background 0.2s" }}>
-          {copied ? "✓ Copied! Paste into Messenger 💙" : "📋 Copy Summary to Share"}
+          {copied ? "✓ Copied! Paste into Messenger" : "Copy Summary to Share"}
         </button>
         <button onClick={() => { setDone(false); setStep(1); setF({ name:"",phone:"",address:"",email:"",day:"",loads:"medium",numLoads:1,addons:{},miles:5,notes:"",pay:"Venmo" }); }}
           style={{ width:"100%", padding:"13px", borderRadius:14, border:`1.5px solid ${P}`, background:WH, color:GY, fontFamily:"Lato,sans-serif", fontSize:13, fontWeight:700, cursor:"pointer" }}>
