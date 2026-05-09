@@ -20,25 +20,29 @@ const SERVICES = [
 ];
 
 const ADDONS = [
-  { id:"pickup",   name:"Porch Pickup & Drop-off",       price:8,  note:"First 15 mi included · $0.75/extra mi · Base price", perLoad:false },
+  { id:"pickup",   name:"Porch Pickup & Drop-off - Not Optional",       price:8,  note:"First 15 mi included · $0.75/extra mi · Base price", perLoad:false },
+  { id:"detergent",  name:"Brightening Detergent",      price: 4,
+note:"No bleach · Natural",		      perLoad:true  },
   { id:"scent_e",  name:"Eucalyptus Scent Booster",      price:4,  note:"Natural EO · No synthetics",            perLoad:true  },
   { id:"scent_l",  name:"Clean Linen Scent Booster",     price:4,  note:"Eucalyptus & lavender blend",           perLoad:true  },
-  { id:"softener", name:"Fragrance-Free Fabric Softener",price:3,  note:"Vinegar-based · baby safe · all fabrics",perLoad:false },
-  { id:"stain",    name:"Stain Pre-Treatment",            price:5,  note:"Natural spray · no bleach",             perLoad:false },
+  { id:"softener", name:"Fragrance-Free Fabric Softener",price:3,  note:"Vinegar-based · baby safe · all fabrics",perLoad:true },
+  { id:"stain",    name:"Stain Pre-Treatment",            price:5,  note:"Natural spray · no bleach",             perLoad:true },
   { id:"hang",     name:"Hang-Dry / Delicates",          price:6,  note:"Laid flat or hung to dry",              perLoad:false },
-  { id:"rinse",    name:"Extra Rinse Cycle",              price:3,  note:"Sensitive skin & baby items",           perLoad:false },
+  { id:"rinse",    name:"Sensitives skin bundle",              price:5,  note:"Fragrance-free softner & extra rince",           perLoad:true },
   { id:"sort",     name:"Sort & Organize",                price:5,  note:"Sorted by person or type",             perLoad:false },
   { id:"rush",     name:"Same-Day Rush",                  price:15, note:"Subject to availability",              perLoad:false },
 ];
 
 const PRODUCTS = [
-  { n:"Fragrance-Free Detergent",    d:"Unscented · Baby Safe",   tags:["No Fragrance","Baby Safe","Natural"],      bg:A    },
+  { n:"Fragrance-Free Detergent",    d:"Unscented · Baby Safe", 
+   tags:["No Fragrance","Baby Safe","Natural"],      bg:A    },
   { n:"Eucalyptus Detergent",        d:"Scented · Antimicrobial",  tags:["Eucalyptus","Antimicrobial"],    bg:MN   },
-  { n:"Brightening Detergent",       d:"Add-On +$3/load · No Bleach",   tags:["No Bleach","Brightens","Natural"],         bg:"#fffde0" },
-  { n:"Fragrance-Free Softener",    d:"Add-On +$3/load · Vinegar-Based · Baby Safe",           tags:["No Fragrance","Baby Safe","All Fabrics"],  bg:"#ede0f7" },
-  { n:"Eucalyptus Scent Booster",   d:"Add-On +$4/load · Natural EO",        tags:["Add-On","Natural EO","No Synthetics"],    bg:MN   },
-  { n:"Clean Linen Scent Booster",  d:"Add-On +$4/load · EO blend",          tags:["Add-On","Lavender+Eucalyptus"],             bg:"#ede0f7" },
-  { n:"Stain Pre-Treatment Spray",  d:"Add-On +$5 · No bleach formula",      tags:["Add-On","No Bleach","Natural"],           bg:CR   },
+  { n:"Brightening Detergent",       d:"Add-On +$4/load · No Bleach",   tags:["No Bleach","Brightens","Natural"],         bg:"#fffde0" },
+  { n:"Fragrance-Free Softener",     d:"Add-On +$3/load · Vinegar-Based · Baby Safe",   
+tags:["No Fragrance","Baby Safe","All Fabrics"],  bg:"#ede0f7" },
+  { n:"Eucalyptus Scent Booster",    d:"Add-On +$4/load · Natural EO",        tags:["Add-On","Natural EO","No Synthetics"],    bg:MN   },
+  { n:"Clean Linen Scent Booster",   d:"Add-On +$4/load · EO blend",          tags:["Add-On","Lavender+Eucalyptus"],             bg:"#ede0f7" },
+  { n:"Stain Pre-Treatment Spray",   d:"Add-On +$5 · No bleach formula",      tags:["Add-On","No Bleach","Natural"],           bg:CR   },
 ];
 
 const DAYS = ["Monday","Tuesday","Saturday"];
