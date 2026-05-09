@@ -20,8 +20,8 @@ const SERVICES = [
 ];
 
 const ADDONS = [
-  { id:"pickup",   name:"Porch Pickup & Drop-off",       price:8,  note:"First 15 mi included · $0.75/extra mi", perLoad:false },
-  { id:"scent_e",  name:"Eucalyptus Scent Booster",      price:4,  note:"Natural EO · no synthetics",            perLoad:true  },
+  { id:"pickup",   name:"Porch Pickup & Drop-off",       price:8,  note:"First 15 mi included · $0.75/extra mi · Base price", perLoad:false },
+  { id:"scent_e",  name:"Eucalyptus Scent Booster",      price:4,  note:"Natural EO · No synthetics",            perLoad:true  },
   { id:"scent_l",  name:"Clean Linen Scent Booster",     price:4,  note:"Eucalyptus & lavender blend",           perLoad:true  },
   { id:"softener", name:"Fragrance-Free Fabric Softener",price:3,  note:"Vinegar-based · baby safe · all fabrics",perLoad:false },
   { id:"stain",    name:"Stain Pre-Treatment",            price:5,  note:"Natural spray · no bleach",             perLoad:false },
@@ -32,17 +32,17 @@ const ADDONS = [
 ];
 
 const PRODUCTS = [
-  { e:"🫧", n:"Fragrance-Free Detergent",    d:"Unscented · Baby Safe · HE Safe",   tags:["No Fragrance","Baby Safe","Natural"],      bg:A    },
-  { e:"🌿", n:"Eucalyptus Detergent",        d:"Scented · Antimicrobial · HE Safe",  tags:["Eucalyptus","Antimicrobial","HE Safe"],    bg:MN   },
-  { e:"✨", n:"Brightening Detergent",       d:"No Bleach · Whites & Lights Only",   tags:["No Bleach","Brightens","Natural"],         bg:"#fffde0" },
-  { e:"☁️", n:"Fragrance-Free Softener",    d:"Vinegar-Based · Baby Safe",           tags:["No Fragrance","Baby Safe","All Fabrics"],  bg:"#ede0f7" },
-  { e:"🌸", n:"Eucalyptus Scent Booster",   d:"Add-On +$4/load · Natural EO",        tags:["Add-On","Natural EO","No Synthetics"],    bg:MN   },
-  { e:"🌬️",n:"Clean Linen Scent Booster",  d:"Add-On +$4/load · EO blend",          tags:["Add-On","Laven+Euca","Airy"],             bg:"#ede0f7" },
-  { e:"🧼", n:"Stain Pre-Treatment Spray",  d:"Add-On +$5 · No bleach formula",      tags:["Add-On","No Bleach","Natural"],           bg:CR   },
+  { n:"Fragrance-Free Detergent",    d:"Unscented · Baby Safe",   tags:["No Fragrance","Baby Safe","Natural"],      bg:A    },
+  { n:"Eucalyptus Detergent",        d:"Scented · Antimicrobial",  tags:["Eucalyptus","Antimicrobial"],    bg:MN   },
+  { n:"Brightening Detergent",       d:"No Bleach",   tags:["No Bleach","Brightens","Natural"],         bg:"#fffde0" },
+  { n:"Fragrance-Free Softener",    d:"Vinegar-Based · Baby Safe",           tags:["No Fragrance","Baby Safe","All Fabrics"],  bg:"#ede0f7" },
+  { n:"Eucalyptus Scent Booster",   d:"Add-On +$4/load · Natural EO",        tags:["Add-On","Natural EO","No Synthetics"],    bg:MN   },
+  { n:"Clean Linen Scent Booster",  d:"Add-On +$4/load · EO blend",          tags:["Add-On","Lavender+Eucalyptus"],             bg:"#ede0f7" },
+  { n:"Stain Pre-Treatment Spray",  d:"Add-On +$5 · No bleach formula",      tags:["Add-On","No Bleach","Natural"],           bg:CR   },
 ];
 
 const DAYS = ["Monday","Tuesday","Saturday"];
-const PAYS = ["Venmo","Zelle","Cash App","Apple Pay","Cash"];
+const PAYS = ["Venmo","Zelle","Cash App","Apple Pay"];
 
 // ── Tiny helpers ─────────────────────────────────────────────
 const fmt = n => "$" + (Math.round(n * 100) / 100).toFixed(2);
@@ -117,7 +117,7 @@ function Nav({ page, go }) {
       }}
       onMouseEnter={e => e.target.style.transform="translateY(-1px)"}
       onMouseLeave={e => e.target.style.transform="none"}>
-        Book Now ✨
+        Book Now
       </button>
     </nav>
   );
@@ -141,13 +141,13 @@ function Hero({ go }) {
         {/* Main headline — matches screenshot style */}
         <h1 className="afu" style={{
           fontFamily:"'Cormorant Garamond',Georgia,serif",
-          fontSize:"clamp(36px,7vw,64px)", color:DK,
+          fontSize:"clamp(48px,9vw,86px)", color:DK,
           margin:"0 0 14px", lineHeight:1.15, fontWeight:700,
           animationDelay:"0.15s",
         }}>
-          <span style={{ color:DK, fontWeight:700, fontStyle:"normal" }}>Clean clothes,</span>
+          <span style={{ color:DK, fontWeight:700, fontStyle:"normal" }}>Busy life,</span>
           <br/>
-          <span style={{ color:BT, fontWeight:700, fontStyle:"italic" }}>naturally done.</span>
+          <span style={{ color:BT, fontWeight:700, fontStyle:"italic" }}>Clean clothes.</span>
         </h1>
 
         {/* Tagline */}
@@ -306,7 +306,7 @@ function Services({ go }) {
       <div style={{ background:DK, borderRadius:20, padding:"24px 32px", textAlign:"center", marginBottom:40 }}>
         <p style={{ fontFamily:"Lato,sans-serif", fontSize:11, color:P, textTransform:"uppercase", letterSpacing:"0.14em", margin:"0 0 14px" }}>Payment Accepted Via</p>
         <div style={{ display:"flex", justifyContent:"center", gap:10, flexWrap:"wrap" }}>
-          {[["💜","Venmo"],["💙","Zelle"],["💚","Cash App"],["🍎","Apple Pay"],["💵","Cash"]].map(([em,m]) => (
+          {[["Venmo"],["Zelle"],["Cash App"],["Apple Pay"]].map(([em,m]) => (
             <span key={m} style={{ background:"rgba(183,215,234,0.15)", borderRadius:20, padding:"8px 18px", fontFamily:"Lato,sans-serif", fontSize:12, fontWeight:700, color:WH }}>{em} {m}</span>
           ))}
         </div>
@@ -316,18 +316,18 @@ function Services({ go }) {
       <div style={{ background:`linear-gradient(135deg,${A} 0%,#f5eefa 100%)`, borderRadius:24, padding:"40px 36px", marginBottom:40, border:`1.5px solid ${P}` }}>
         <p style={{ fontFamily:"Lato,sans-serif", fontSize:11, letterSpacing:"0.2em", color:GY, textAlign:"center", textTransform:"uppercase", marginBottom:8 }}>Save More Over Time</p>
         <h3 style={{ fontFamily:"'Cormorant Garamond',Georgia,serif", fontSize:"clamp(24px,4vw,36px)", textAlign:"center", color:DK, margin:"0 0 8px", fontWeight:700 }}>
-          Save with Recurring Service 🌿
+          Save with Recurring Service
         </h3>
         <p style={{ fontFamily:"Lato,sans-serif", fontSize:14, color:GY, textAlign:"center", margin:"0 0 32px", lineHeight:1.7 }}>
-          Book a standing schedule and save every single time — the more regularly you book, the more you save.
+          Book a standing schedule and save every single time. The more regularly you book, the more you save.
         </p>
 
         {/* Three tier cards */}
         <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit,minmax(200px,1fr))", gap:14, marginBottom:32 }}>
           {[
-            { freq:"Weekly",    discount:"15% Off",  desc:"One load per week — set it and forget it",   badge:"Best Value",    badgeBg:"#4893C6", badgeTxt:WH,           bg:WH,           accent:B,            star:true  },
-            { freq:"Bi-Weekly", discount:"10% Off",  desc:"Every two weeks — great for most families",  badge:"Most Popular",  badgeBg:"#D4B8E0", badgeTxt:"#6a3a8a",    bg:"#f5eefa",    accent:"#9b6eb8",    star:false },
-            { freq:"Monthly",   discount:"5% Off",   desc:"Once a month — a great way to get started",  badge:"Flexible",      badgeBg:"#d4ede4", badgeTxt:"#3a7a50",    bg:"#edf9f4",    accent:"#7aaf8e",    star:false },
+            { freq:"Weekly",    discount:"15% Off",  desc:"One load per week. Set it and forget it.",   badge:"Best Value",    badgeBg:"#4893C6", badgeTxt:WH,           bg:WH,           accent:B,            star:true  },
+            { freq:"Bi-Weekly", discount:"10% Off",  desc:"Every two weeks. Great for most families.",  badge:"Most Popular",  badgeBg:"#D4B8E0", badgeTxt:"#6a3a8a",    bg:"#f5eefa",    accent:"#9b6eb8",    star:false },
+            { freq:"Monthly",   discount:"5% Off",   desc:"Once a month. A great way to get started.",  badge:"Flexible",      badgeBg:"#d4ede4", badgeTxt:"#3a7a50",    bg:"#edf9f4",    accent:"#7aaf8e",    star:false },
           ].map(({ freq, discount, desc, badge, badgeBg, badgeTxt, bg, accent, star }) => (
             <div key={freq} style={{
               background:bg, borderRadius:20, padding:"28px 22px", textAlign:"center",
@@ -364,7 +364,7 @@ function Services({ go }) {
             {[
               ["1","Message to request","Let us know your preferred frequency and we'll set up your standing schedule."],
               ["2","Lock in your discount","Your discount applies automatically to every order on your recurring schedule."],
-              ["3","We handle the rest","Same natural products, same care — just a little more savings every time. 🌸"],
+              ["3","We handle the rest","Same natural products, same care. Just a little more savings every time."],
             ].map(([num, title, body]) => (
               <div key={num} style={{ display:"flex", gap:12, alignItems:"flex-start" }}>
                 <div style={{ width:26, height:26, borderRadius:8, background:B, color:WH, display:"flex", alignItems:"center", justifyContent:"center", fontSize:12, fontWeight:700, fontFamily:"Lato,sans-serif", flexShrink:0, marginTop:2 }}>{num}</div>
@@ -391,7 +391,7 @@ function Services({ go }) {
             Request Recurring Service →
           </button>
           <p style={{ fontFamily:"Lato,sans-serif", fontSize:11, color:GY, margin:"10px 0 0" }}>
-            Message us to get started — we'll set up your schedule and lock in your discount 🌿
+            Message us to get started. We'll set up your schedule and lock in your discount.
           </p>
         </div>
       </div>
@@ -412,7 +412,7 @@ function Products() {
       <p style={{ fontFamily:"Lato,sans-serif", fontSize:11, letterSpacing:"0.2em", color:GY, textAlign:"center", textTransform:"uppercase", marginBottom:8 }}>What We Use</p>
       <h2 style={{ fontFamily:"'Cormorant Garamond',Georgia,serif", fontSize:"clamp(28px,5vw,46px)", textAlign:"center", color:DK, margin:"0 0 14px", fontWeight:700 }}>Our Natural Products</h2>
       <p style={{ fontFamily:"Lato,sans-serif", fontSize:14, color:GY, textAlign:"center", margin:"0 0 48px", lineHeight:1.8, maxWidth:540, marginLeft:"auto", marginRight:"auto" }}>
-        Handcrafted in small batches — no harsh chemicals, no synthetic fragrances. Gentle on your clothes, your skin, and the planet. 🌿
+        Handcrafted in small batches. No harsh chemicals, no synthetic fragrances. Gentle on your clothes, your skin, and the planet.
       </p>
       <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit,minmax(240px,1fr))", gap:14 }}>
         {PRODUCTS.map(p => (
@@ -493,7 +493,7 @@ function Booking({ go }) {
     <section style={{ padding:"80px 48px", maxWidth:"100%", textAlign:"center" }}>
       <div style={{ background:`rgba(72,147,198,0.06)`, borderRadius:28, padding:"52px 36px", border:`1px solid ${P}` }}>
         <img src={LM} alt="" style={{ width:200, marginBottom:24 }}/>
-        <h2 style={{ fontFamily:"'Cormorant Garamond',Georgia,serif", fontSize:36, color:B, margin:"0 0 14px", fontWeight:700 }}>Request Sent! 🌸</h2>
+        <h2 style={{ fontFamily:"'Cormorant Garamond',Georgia,serif", fontSize:36, color:B, margin:"0 0 14px", fontWeight:700 }}>Request Sent! </h2>
         <p style={{ fontFamily:"Lato,sans-serif", fontSize:14, color:GY, lineHeight:1.85, margin:"0 0 28px" }}>
           Thank you, <strong style={{ color:DK }}>{f.name}</strong>!<br/>
           We'll confirm your slot and send a full invoice via <strong style={{ color:B }}>Facebook Messenger</strong> within 24 hours.
@@ -519,7 +519,7 @@ function Booking({ go }) {
       <p style={{ fontFamily:"Lato,sans-serif", fontSize:11, letterSpacing:"0.2em", color:GY, textAlign:"center", textTransform:"uppercase", marginBottom:8 }}>Get Started</p>
       <h2 style={{ fontFamily:"'Cormorant Garamond',Georgia,serif", fontSize:"clamp(28px,5vw,46px)", textAlign:"center", color:DK, margin:"0 0 8px", fontWeight:700 }}>Book a Pickup</h2>
       <p style={{ fontFamily:"Lato,sans-serif", fontSize:13, color:GY, textAlign:"center", lineHeight:1.7, margin:"0 0 36px" }}>
-        Fill in your details below — we'll confirm your slot and send your invoice via Facebook Messenger.
+        Fill in your details below. We'll confirm your slot and send your invoice shortly.
       </p>
 
       {/* Step indicator */}
@@ -727,12 +727,12 @@ function About() {
         </div>
         <div>
           <p style={{ fontFamily:"Lato,sans-serif", fontSize:11, letterSpacing:"0.2em", color:GY, textTransform:"uppercase", marginBottom:8 }}>Our Story</p>
-          <h2 style={{ fontFamily:"'Cormorant Garamond',Georgia,serif", fontSize:"clamp(28px,4vw,40px)", color:DK, margin:"0 0 22px", lineHeight:1.2, fontWeight:700 }}>Hi, I'm Djenaba 🌸</h2>
+          <h2 style={{ fontFamily:"'Cormorant Garamond',Georgia,serif", fontSize:"clamp(28px,4vw,40px)", color:DK, margin:"0 0 22px", lineHeight:1.2, fontWeight:700 }}>Hi, I'm Djenaba!</h2>
           <p style={{ fontFamily:"Lato,sans-serif", fontSize:14, color:GY, lineHeight:1.9, margin:"0 0 18px" }}>
-            I'm a stay-at-home mom in Florence, KY — and I started Bloom & Clean because I know exactly what it feels like to have a never-ending to-do list with laundry always at the bottom of it.
+            A stay-at-home mom that started Bloom & Clean because I know exactly what it feels like to have a never-ending to-do list with laundry always at the bottom of it.
           </p>
           <p style={{ fontFamily:"Lato,sans-serif", fontSize:14, color:GY, lineHeight:1.9, margin:"0 0 16px" }}>
-            I wash every load with natural, handmade products. Every bag is picked up and returned with care. This is more than laundry — it's one less thing on your plate.
+            I wash every load with natural, handmade products. Every load is picked up and returned with care. This is more than laundry — it's one less thing on your plate.
           </p>
           <p style={{ fontFamily:"Lato,sans-serif", fontSize:14, color:B, lineHeight:1.7, margin:0, fontWeight:500 }}>
             Mon · Tue · Sat · Florence, KY &amp; surrounding NKY area
@@ -751,12 +751,10 @@ function Contact({ go }) {
       <h2 style={{ fontFamily:"'Cormorant Garamond',Georgia,serif", fontSize:"clamp(28px,5vw,46px)", textAlign:"center", color:DK, margin:"0 0 44px", fontWeight:700 }}>Contact & Booking</h2>
       <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit,minmax(180px,1fr))", gap:14, marginBottom:32 }}>
         {[
-          { e:"📘", t:"Facebook",    v:"@BloomAndClean",              s:"Message to book or ask questions", bg:A    },
-          { e:"✉️",  t:"Email",       v:"hello@bloomandclean.com",     s:"We'll respond within 24 hours",    bg:CR   },
-          { e:"📅", t:"Available",   v:"Mon · Tue · Sat",             s:"Book at least 24 hrs ahead",       bg:`${W}66` },
-          { e:"⏱",  t:"Turnaround",  v:"48 Hours",                    s:"Rush available · +$15",            bg:MN   },
-          { e:"📍", t:"Area",        v:"Florence, KY",                s:"& NKY · First 15 mi included",     bg:A    },
-        ].map(c => (
+          { t:"Facebook",    v:"@BloomAndClean",              s:"Message to book or ask questions", bg:A    },
+          { t:"Email",       v:"mail@bloomandclean.com",     s:"We'll respond within 24 hours",    bg:CR   },
+          { t:"Available",   v:"Mon · Tue · Sat",             s:"Book at least 24 hrs ahead",       bg:`${W}66` },
+       ].map(c => (
           <div key={c.t} style={{ background:c.bg, borderRadius:20, padding:"24px 18px", border:`1px solid ${P}`, textAlign:"center" }}>
             <span style={{ fontSize:30, display:"block", marginBottom:10 }}>{c.e}</span>
             <p style={{ fontFamily:"Lato,sans-serif", fontSize:10, color:GY, textTransform:"uppercase", letterSpacing:"0.1em", margin:"0 0 5px" }}>{c.t}</p>
@@ -768,7 +766,7 @@ function Contact({ go }) {
       <div style={{ background:DK, borderRadius:22, padding:"28px 32px", textAlign:"center", marginBottom:32 }}>
         <p style={{ fontFamily:"Lato,sans-serif", fontSize:11, color:P, textTransform:"uppercase", letterSpacing:"0.14em", margin:"0 0 16px" }}>Payment Accepted Via</p>
         <div style={{ display:"flex", justifyContent:"center", gap:10, flexWrap:"wrap" }}>
-          {[["💜","Venmo"],["💙","Zelle"],["💚","Cash App"],["🍎","Apple Pay"],["💵","Cash"]].map(([em,m]) => (
+          {[["Venmo"],["Zelle"],["Cash App"],["Apple Pay"]].map(([em,m]) => (
             <span key={m} style={{ background:"rgba(183,215,234,0.15)", borderRadius:20, padding:"8px 18px", fontFamily:"Lato,sans-serif", fontSize:12, fontWeight:700, color:WH }}>{em} {m}</span>
           ))}
         </div>
@@ -809,7 +807,7 @@ function Footer({ go }) {
           <div style={{ display:"flex", flexDirection:"column", gap:10 }}>
             <p style={{ fontFamily:"Lato,sans-serif", fontSize:10, fontWeight:700, color:GY, textTransform:"uppercase", letterSpacing:"0.12em", margin:"0 0 4px" }}>Book Now</p>
             <button onClick={() => go("Booking")} style={{ padding:"13px 22px", borderRadius:24, border:"none", background:B, color:WH, fontFamily:"Lato,sans-serif", fontSize:13, fontWeight:700, cursor:"pointer", boxShadow:`0 4px 16px rgba(72,147,198,0.35)` }}>
-              Book a Pickup 🌿
+              Book a Pickup
             </button>
             <p style={{ fontFamily:"Lato,sans-serif", fontSize:12, color:P, margin:0 }}>@BloomAndClean on Facebook</p>
             <p style={{ fontFamily:"Lato,sans-serif", fontSize:11, color:GY, margin:0 }}>48-hr turnaround · Natural products</p>
@@ -817,7 +815,7 @@ function Footer({ go }) {
         </div>
         <div style={{ borderTop:"1px solid rgba(183,215,234,0.12)", paddingTop:22, textAlign:"center" }}>
           <p style={{ fontFamily:"Lato,sans-serif", fontSize:11, color:GY, margin:0 }}>
-            © 2025 Bloom & Clean · Natural Laundry · Florence, KY · Made with 💙 for busy families
+            © 2025 Bloom & Clean · Natural Laundry
           </p>
         </div>
       </div>
